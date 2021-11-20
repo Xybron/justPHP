@@ -7,7 +7,7 @@ header('Content-Type: application/json');
 
 if(isset($_POST["userData"])) {
     $data_received =  $_POST["userData"];
-    echo json_encode(array('success' => 1));
+    echo json_encode(array('success' => $data_received));
 }
 
-else echo "Couldn't get the right data";
+else echo json_encode(array('success' => false, 'error' => array('message' => 'Server Error: Missing parameter *userData')));
