@@ -1,31 +1,4 @@
 $(document).ready(function () {
-  // Handles sign up
-  $("#signup_form").submit(function (event) {
-    event.preventDefault();
-    let userData = {
-      name: $("#signup-name").val(),
-      email: $("#signup-email").val(),
-      password: $("#signup-pwd").val(),
-      password2: $("#signup-pwd2").val(),
-    };
-
-    const request = $.ajax({
-      url: "../mailS.php",
-      type: "post",
-      data: userData,
-    });
-
-    console.log(userData);
-    console.log(request);
-    // $(".form-message").load("mailS.php",{
-    //     name: name,
-    //     email: email,
-    //     password: password,
-    //     password2: password2,
-    //     submit: submit
-    // });
-  });
-
   $("#signin_form").submit(function (event) {
     event.preventDefault();
     var email = $("#signin-email").val();
@@ -39,15 +12,28 @@ $(document).ready(function () {
   });
 });
 
-// Button event listeners
-const signUpButton = document.getElementById("signUp");
-const signInButton = document.getElementById("signIn");
-const container = document.getElementById("container");
+// Handles user registration
+function registerUser() {
+  // Get the user's data from the form
+  let userData = {
+    name: $("#signup-name").val(),
+    email: $("#signup-email").val(),
+    password: $("#signup-pwd").val(),
+    password2: $("#signup-pwd2").val(),
+  };
 
-signUpButton.addEventListener("click", () => {
-  container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener("click", () => {
-  container.classList.remove("right-panel-active");
-});
+  // Make a request to the php server, sending the user data to be processed
+  const request = $.ajax({
+    url: "https://phpauth.herokuapp.com/auth/mailS.php",
+    type: "post",
+    data: userData,
+    dataType: "jsonp",
+    success: function (response) {
+      console.log(response);
+    },
+    error: function (XMLHttpRequest, textStatus, errorThrown) {
+      console.log(textStatus);
+      console.log(errorThrown);
+    },
+  });
+}
