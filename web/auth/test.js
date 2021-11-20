@@ -12,9 +12,6 @@
 //     $errorPassword =false;
 //     $errorValid =false;
 
-
-    
-
 //     if (empty($name) ||empty($email) || empty($password) || empty($password2) ){
 //         echo "<span class='form-error'> Fill in all fields!</span>";
 //         $errorEmpty = true;
@@ -27,7 +24,7 @@
 //         echo "<span class='form-error'>Password does not match!</span>";
 //     }
 //     else {
-         
+
 //         $errorEmpty = false;
 //         $errorEmail = false;
 //         $errorPassword =false;
@@ -76,7 +73,7 @@
 //             signInButton.click();
 //             </script>
 //             ";
-           
+
 // 			die;
 // 		}else
 // 		{
@@ -84,27 +81,24 @@
 //                 $errorValid =true;
 //                 echo "<span class='form-error'>Please enter valid information</span>";
 //             }
-           
+
 // 		}
 
-    
-   
 // }
 //     else {
-//         echo "There was an error!"; 
+//         echo "There was an error!";
 //     }
 
 // ?>
 
 // <script>
-    
 
 //     var errorEmpty = "<?php echo $errorEmpty; ?>";
 //     var errorEmail = "<?php echo $errorEmail; ?>";
 //     var errorName = "<?php echo $errorName; ?>";
 //     var errorPassword = "<?php echo $errorPassword; ?>";
 //     var errorValid = "<?php echo $errorValid; ?>";
-  
+
 //     if (errorEmpty){
 //         $('#signup-name').addClass('input-error');
 //         $('#signup-email').addClass('input-error');
@@ -154,6 +148,5 @@
 //         $("#signup-email").val("");
 //         $("#signup-pwd2").val("");
 //     }
-
 
 // </script>
